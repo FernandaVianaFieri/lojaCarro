@@ -13,20 +13,22 @@ public class Carro {
 	private String marca;
 	private String idCarro;
 	private String cadastar;
-	private String deletar;
+	private String deletar;	
+	private String categoria;
 	
 
 	public Carro() {
 
 	}
 
-	public Carro(Double valor, String anoFabricacao, String modelo, String marca, String idCarro) {
+	public Carro(Double valor, String anoFabricacao, String modelo, String marca, String idCarro,String categoria) {
 		super();
 		this.valor = valor;
 		this.anoFabricacao = anoFabricacao;
 		this.modelo = modelo;
 		this.marca = marca;
 		this.idCarro  = UUID.randomUUID().toString();
+		this.categoria = categoria;
 
 	}
 
@@ -78,6 +80,31 @@ public class Carro {
 
 	public void setCadastar(String cadastar) {
 		this.cadastar = cadastar;
+	}
+	
+
+	public String getIdCarro() {
+		return idCarro;
+	}
+
+	public void setIdCarro(String idCarro) {
+		this.idCarro = idCarro;
+	}
+
+	public String getDeletar() {
+		return deletar;
+	}
+
+	public void setDeletar(String deletar) {
+		this.deletar = deletar;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	public String delete(Carro carro) {

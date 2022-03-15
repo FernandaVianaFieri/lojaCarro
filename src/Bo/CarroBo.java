@@ -3,6 +3,7 @@ package Bo;
 import java.util.HashMap;
 
 import br.com.lojaCarro.Carro;
+import br.com.lojaCarro.Categoria;
 
 
 
@@ -17,10 +18,12 @@ public class CarroBo {
 		carro.put(3,modelo);
 		carro.put(4,marca);
 		carro.put(5,idCarro);		
-		carro.put(5, categoria);
+		carro.keySet();
 		return carro;
 	}
 	
+	
+
 	public boolean apagaCarro(Carro  carro) {
 		if (carro != null) {
 			if (carro.getId()!=null) {

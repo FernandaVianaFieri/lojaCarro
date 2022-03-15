@@ -23,7 +23,6 @@ public class Main {
 		
 		
 		Categoria categoria = null;
-
 		String modelo;
 		double valor;
 		String anoFabricacao;
@@ -31,9 +30,8 @@ public class Main {
 		String idCarro = null;
 		int escolha= -1;
 		Scanner sc = new Scanner(System.in);
-		
-		
-		
+	String resposta1;
+			
 		
 		
 		while (escolha!=0) {
@@ -56,6 +54,11 @@ public class Main {
 			System.out.println(carro.getId());
 			
 			
+			 System.out.println("\nDigite 1 Para veiculo  novo (>=2022) ou 2 para Seminovo (<=2021) ");
+			 resposta1 = sc.nextLine();
+			 
+				
+			
 			System.out.println("\nDigite o modelo do carro, Ex: Onix ");
 			modelo = sc.nextLine();
 			
@@ -66,7 +69,19 @@ public class Main {
 			System.out.println("Digite o ano de fabricação carro, Ex: 2020 ");
 			 anoFabricacao = sc.nextLine();
 			 
-			 System.out.println(" Modelo: " + modelo  +  " Marca: " + marca  + " Ano de Fabricação: " + anoFabricacao );
+			 System.out.println("Digite o valor do carro, Ex: 15000 ");
+			 valor= sc.nextDouble();
+			 
+			 
+			
+			  if (resposta1.equals("1"))  {
+				  System.out.println("Veiculo "+ Categoria.NOVO.getTexto()); 
+			  }
+			  else if (resposta1.equals("2")) {
+				  System.out.println("Veiculo "+ Categoria.SEMINOVO.getTexto()); 
+			  }
+			 				 
+			 System.out.println( "Id: " + carro.getIdCarro() +" Modelo: " + modelo  +  " Marca: " + marca  + " Ano de Fabricação: " + anoFabricacao + " Valor " + valor  );
 			 	 		
 		} 
 
@@ -77,6 +92,7 @@ public class Main {
 					}
 
 		else if (escolha == 3) {// Edita carro
+			
 			 carroBo.update(carro);
 			continue;
 
@@ -106,15 +122,15 @@ public class Main {
 				} catch (ParseException e) {
 				 e.printStackTrace();}
 
-				System.out.println("seu o numero de telefone : ");
+				System.out.println(" Digite seu o numero de telefone : ");
 				String telefone = sc.nextLine();
 				while ((telefone).length() != 9) {
-				System.out.println("Número de telefone inválido\n Digite novamente");
+				System.out.println(" Número de telefone inválido\n Digite novamente");
 				telefone = sc.nextLine();
 				
 				 
 				}			
-				System.out.println("Nome: " + nome  +  " CPF: " + cpf  + " Data de Nascimento: " + dataNascimento +  "Telefone: "+  telefone);
+				System.out.println("Nome: " + nome  +  " CPF: " + cpf  + " Data de Nascimento: " + dataNascimento +  " Telefone: " +  telefone);
 		}
 			
 		else if (escolha == 5) {// venda de carro
