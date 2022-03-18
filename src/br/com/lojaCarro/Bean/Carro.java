@@ -1,4 +1,4 @@
-package br.com.lojaCarro;
+package br.com.lojaCarro.Bean;
 
 import java.util.UUID;
 
@@ -14,20 +14,20 @@ public class Carro {
 	private String idCarro;
 	private String cadastar;
 	private String deletar;	
-	private String categoria;
+	private Categoria categoria;
 	
 
 	public Carro() {
 
 	}
 
-	public Carro(Double valor, String anoFabricacao, String modelo, String marca, String idCarro,String categoria) {
+	public Carro(double valor, String anoFabricacao, String modelo, String marca, String idCarro,Categoria categoria) {
 		super();
 		this.valor = valor;
 		this.anoFabricacao = anoFabricacao;
 		this.modelo = modelo;
 		this.marca = marca;
-		this.idCarro  = UUID.randomUUID().toString();
+		this.idCarro  = idCarro;
 		this.categoria = categoria;
 
 	}
@@ -99,11 +99,13 @@ public class Carro {
 		this.deletar = deletar;
 	}
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	
+
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
@@ -125,6 +127,12 @@ public class Carro {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Carro [valor=" + valor + ", anoFabricacao=" + anoFabricacao + ", modelo=" + modelo + ", marca=" + marca
+				+ ", idCarro=" + idCarro + ", cadastar=" + cadastar + ", deletar=" + deletar + ", categoria="
+				+ categoria + "]";
+	}
 	
 	}
 

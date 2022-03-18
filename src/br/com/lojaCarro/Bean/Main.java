@@ -1,40 +1,56 @@
-package br.com.lojaCarro;
+package br.com.lojaCarro.Bean;
+
+import java.util.Calendar;
+
+import br.com.lojaCarro.Bo.CarroBo;
+import br.com.lojaCarro.Bo.ClienteBo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
-import java.util.UUID;
-
-import Bo.CarroBo;
-import Bo.ClienteBo;
+import java.util.*;
 
 public class Main {
 
-	private static final String String = null;
+	
+	
+	static Categoria categoria;
+	private static String modelo;
+	private static double valor;
+	private static String anoFabricacao;
+	private static String marca;
+	private static String idCarro = null;
+	private static int escolha= -1;	
+	private static String estadoCarro;
+	
+	
+	
 
 	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
 
 		CarroBo carroBo = new CarroBo();
 
 		ClienteBo clienteBo = new ClienteBo();
 		
-		Carro carro = new Carro();
 		
 		
-		Categoria categoria = null;
-		String modelo;
-		double valor;
-		String anoFabricacao;
-		String marca;
-		String idCarro = null;
-		int escolha= -1;
-		Scanner sc = new Scanner(System.in);
-	String resposta1;
+		
+		
 			
 		
-		
+	Calendar dataAtual = Calendar.getInstance();
+	System.out.println("Hoje é dia: " +dataAtual.getTime());
+	
+	
+	SimpleDateFormat dataHoje = new SimpleDateFormat("dd/MM/yyyy  HH:mm:ss");
+	System.out.println(dataHoje.format(dataAtual.getTime()));
+	
+	
+	
 		while (escolha!=0) {
+			
+			
 			
 			System.out.println("...................... ");
 
@@ -50,15 +66,22 @@ public class Main {
 		if (escolha == 1) {// cadastra carro
 			
 			System.out.println("Mostrar o Id do carro:  ");
-			carro.setId( UUID.randomUUID().toString());
-			System.out.println(carro.getId());
+			idCarro =  UUID.randomUUID().toString();
+			System.out.println (idCarro);
 			
 			
 			 System.out.println("\nDigite 1 Para veiculo  novo (>=2022) ou 2 para Seminovo (<=2021) ");
-			 resposta1 = sc.nextLine();
-			 
-				
-			
+			 estadoCarro = sc.nextLine();
+			 if (estadoCarro.equals("1"))  {
+				  categoria = Categoria.NOVO;
+				  System.out.println("Veiculo "+ Categoria.NOVO.getTexto()); 
+			  }
+			  else if (estadoCarro.equals("2")) {
+				  categoria = Categoria.SEMINOVO;
+				  System.out.println("Veiculo "+ Categoria.SEMINOVO.getTexto()); 
+			  }
+			 				
+					
 			System.out.println("\nDigite o modelo do carro, Ex: Onix ");
 			modelo = sc.nextLine();
 			
@@ -72,20 +95,12 @@ public class Main {
 			 System.out.println("Digite o valor do carro, Ex: 15000 ");
 			 valor= sc.nextDouble();
 			 
-			 
-			
-			  if (resposta1.equals("1"))  {
-				  System.out.println("Veiculo "+ Categoria.NOVO.getTexto()); 
-			  }
-			  else if (resposta1.equals("2")) {
-				  System.out.println("Veiculo "+ Categoria.SEMINOVO.getTexto()); 
-			  }
-			 				 
-			 System.out.println( "Id: " + carro.getIdCarro() +" Modelo: " + modelo  +  " Marca: " + marca  + " Ano de Fabricação: " + anoFabricacao + " Valor " + valor  );
-			 	 		
+			 			 
+			 String resposta = carroBo.cadastraCarro(valor, anoFabricacao, modelo, marca, idCarro, categoria);	
+			 System.out.println(resposta);
 		} 
 
-
+/*
 		else if (escolha == 2) {// Apaga carro
 			carroBo.apagaCarro(carro);
 			System.out.println("Carro apagado com Sucesso!");
@@ -97,6 +112,7 @@ public class Main {
 			continue;
 
 		} 
+		*/
 		
 		else if (escolha == 4) {// cadastra cliente
 			

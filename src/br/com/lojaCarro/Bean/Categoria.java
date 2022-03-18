@@ -1,4 +1,4 @@
-package br.com.lojaCarro;
+package br.com.lojaCarro.Bean;
 
 public enum Categoria {
 	

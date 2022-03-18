@@ -1,8 +1,8 @@
-package Bo;
+package br.com.lojaCarro.Bo;
 
 import java.util.Date;
 
-import br.com.lojaCarro.Cliente;
+import br.com.lojaCarro.Bean.Cliente;
 
 public class ClienteBo {
 
